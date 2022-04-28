@@ -1,0 +1,51 @@
+/* Header's layout */
+header {
+     height: 70px;
+     display: flex;
+     flex-direction: row;
+     padding-bottom: 5px;
+     .back {
+          font-size: 1.2em;
+     }
+     h1 {
+          font-size: 1.8em;
+          font-family: 'Shrikhand', Arial, Helvetica, sans-serif;
+     }
+}
+
+/* Menu's layout */
+.menu {
+     display: flex;
+     flex-direction: column;
+     img {
+          object-fit: cover;
+     }
+     &__list {
+          background-color: $color-white;
+          border-radius: 30px;
+          margin-top: -50px;
+     }
+}
+
+/* Footer's layout */
+footer {
+     color: $color-white;
+     background-color: $color-footer;
+     margin-top: 50px;
+     padding: 5px 0 20px 20px;
+     h3 a {
+          color: $color-white;
+          font-family: 'Shrikhand', Arial, Helvetica, sans-serif;
+     }
+     ul {
+          list-style-type: none;
+          padding: 0px;
+          li a {
+               color: $color-white;
+               line-height: 30px;
+          }
+          li i {
+               font-size: 0.8em;
+          }
+     }
+}
