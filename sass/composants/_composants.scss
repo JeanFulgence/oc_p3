@@ -1,0 +1,48 @@
+.menu__list__btn {
+     color: $color-white;
+     cursor: pointer;
+     width: 225px;
+     height: 50px;
+     line-height: 50px;
+     border-radius: 25px;
+     @include shadow;
+     background: linear-gradient(to bottom right, $color-secondary, $color-primary);
+     p {
+          font-size: 0.9em;
+          font-weight: bold;
+          text-align: center;
+     }
+}
+
+.dish__btn {
+     position: relative;
+     width: 90%;
+     height: 70px;
+     cursor: pointer;
+     background: $color-white;
+     border-radius: 15px;
+     @include shadow;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     margin: 20px;
+     &__content {
+          h6 {
+               font-size: 1em;
+          }
+          p {
+               font-size: 0.9em;
+          }
+     }
+     &__price {
+          font-size: 0.9em;
+          font-weight: bold;
+          position: absolute;
+          bottom: 0;
+          right: 20px;
+          margin-bottom: 10px;
+     }
+     i {
+          display: none;
+     }
+}

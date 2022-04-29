@@ -1,0 +1,22 @@
+/* Main box shadow */
+@mixin shadow {
+     box-shadow: 0px 5px 10px $color-shadow;
+}
+
+/* Menu category title */
+@mixin category-title {
+     position: relative;
+     font-weight: 300;
+     text-transform: uppercase;
+     margin-left: 25px;
+     margin-top: 20px;
+     &::after { /* Category title underline */
+     content: '';
+          width: 40px;
+          height: 3px;
+          background: $color-tertiary;
+          position: absolute;
+          left: 0px;
+          bottom: -6px;
+     }
+}
