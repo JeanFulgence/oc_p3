@@ -3,6 +3,24 @@
      box-shadow: 0px 5px 10px $color-shadow;
 }
 
+/* Box alignement */
+@mixin alignement-center {
+     display: flex;
+     justify-content: center;
+}
+
+/* Index title */
+@mixin index-title {
+     font-size: 1.2em;
+     margin-left: 20px;
+}
+
+/* Index section padding */
+@mixin index-padding {
+     padding-top: 20px;
+     padding-bottom: 50px;
+}
+
 /* Menu category title */
 @mixin category-title {
      position: relative;
