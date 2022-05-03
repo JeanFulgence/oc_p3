@@ -2,7 +2,7 @@
 .menu__list__btn {
      color: $color-white;
      cursor: pointer;
-     width: 225px;
+     width: 60%;
      height: 50px;
      border-radius: 25px;
      display: flex;
@@ -64,7 +64,6 @@
 /* Dish list button */
 
 .dish__btn {
-     position: relative;
      width: 90%;
      height: 70px;
      cursor: pointer;
@@ -76,20 +75,29 @@
      align-items: center;
      margin: 20px;
      &__content {
+          width: 80%;
+          display: inline-block;
           h6 {
-               font-size: 1em;
+               font-size: 0.9em;
+               margin: 15px 10px -5px 10px;
+               white-space: nowrap;
+               overflow: hidden;
+               text-overflow: ellipsis;
           }
           p {
-               font-size: 0.9em;
+               font-size: 0.8em;
+               margin-left: 10px;
+               white-space: nowrap;
+               overflow: hidden;
+               text-overflow: ellipsis;
           }
      }
      &__price {
-          font-size: 0.9em;
+          font-size: 0.8em;
           font-weight: bold;
-          position: absolute;
-          bottom: 0;
+          position: relative;
           right: 20px;
-          margin-bottom: 10px;
+          bottom: -16px;
      }
      i {
           display: none;
