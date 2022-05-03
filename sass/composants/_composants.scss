@@ -8,13 +8,21 @@
      display: flex;
      justify-content: center;
      align-content: center;
-     margin: 0 auto;
+     margin: 0px auto;
      @include shadow;
      background: linear-gradient(to bottom right, $color-secondary, $color-primary);
      p {
           font-size: 0.9em;
           font-weight: bold;
           line-height: 15px;
+     }
+     @media all and (min-width: 1200px) {
+          width: 30%;
+          p {
+               font-size: 1em;
+               font-weight: bold;
+               line-height: 15px;
+          }
      }
 }
 
@@ -26,15 +34,12 @@
      justify-content: space-around;
      @include shadow;
      border-radius: 20px;
-     margin: 15px 0 15px 0;
+     margin: 15px 0;
      align-self: center;
      position: relative;
      &__number {
           width: 25px;
           height: 25px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
           background: $color-primary;
           border-radius: 20px;
           position: absolute;
@@ -45,8 +50,8 @@
           font-weight: bold;
           color: $color-white;
           position: absolute;
-          top: -8px;
-          left: 8.5px;
+          top: -9px;
+          left: 8px;
           }
      }
      i {
@@ -58,6 +63,16 @@
      p {
           font-weight: 500;
           align-self: center;
+     }
+     @media all and (min-width: 1200px) {
+          height: 80px;
+          &__number {
+               top: 28px;
+          }
+          i {
+               top: 28px;
+               left: 10%;
+          }
      }
 }
 
@@ -73,10 +88,9 @@
      display: flex;
      justify-content: space-between;
      align-items: center;
-     margin: 20px;
+     margin: 25px auto;
      &__content {
           width: 80%;
-          display: inline-block;
           h6 {
                font-size: 0.9em;
                margin: 15px 10px -5px 10px;
@@ -101,5 +115,8 @@
      }
      i {
           display: none;
+     }
+     @media all and (min-width: 1200px) {
+          margin: 30px auto;
      }
 }

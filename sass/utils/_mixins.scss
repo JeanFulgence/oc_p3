@@ -23,11 +23,11 @@
 
 /* Menu category title */
 @mixin category-title {
+     width: 90%;
      position: relative;
      font-weight: 300;
      text-transform: uppercase;
-     margin-left: 25px;
-     margin-top: 20px;
+     margin: 20px auto;
      &::after { /* Category title underline */
      content: '';
           width: 40px;
