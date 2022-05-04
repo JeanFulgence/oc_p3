@@ -38,3 +38,19 @@
           bottom: -6px;
      }
 }
+
+/* Main button background color */
+@mixin main-btn-color {
+     background: linear-gradient(to bottom right, $color-secondary, $color-primary);
+}
+
+/* Pseudo-class for button animation */
+@mixin pseudo-btn {
+     position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          opacity: 0;
+          z-index: -1;
+}

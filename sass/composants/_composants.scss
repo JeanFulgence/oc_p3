@@ -1,4 +1,4 @@
-/* Colored button */
+/* Main button */
 .menu__list__btn {
      color: $color-white;
      cursor: pointer;
@@ -10,11 +10,26 @@
      align-content: center;
      margin: 0px auto;
      @include shadow;
-     background: linear-gradient(to bottom right, $color-secondary, $color-primary);
+     @include main-btn-color;
+     z-index: 1; /* Used for hover animation */
+     position: relative;
      p {
           font-size: 0.9em;
           font-weight: bold;
           line-height: 15px;
+     }
+     &:hover {
+          box-shadow: 0px 8px 10px $color-shadow;
+          &::after {
+               opacity: 0.2;
+          }
+     }
+     &::after { /* Pseudo-class for hover animation */
+          content: "";
+          @include pseudo-btn;
+          border-radius: 25px;
+          background: lighten($color-secondary, 5);
+          transition: opacity 400ms;
      }
      @media all and (min-width: 1200px) {
           width: 30%;
@@ -63,6 +78,22 @@
      p {
           font-weight: 500;
           align-self: center;
+     }
+     &:hover {
+          &::after {
+               opacity: 0.3;
+          }
+          i {
+               color: $color-primary;
+               transition: color 350ms;
+          }
+     }
+     &::after { /* Pseudo-class for hover animation */
+          content: "";
+          @include pseudo-btn;
+          border-radius: 20px;
+          background: lighten($color-secondary, 10);
+          transition: opacity 250ms;
      }
      @media all and (min-width: 1200px) {
           height: 80px;
