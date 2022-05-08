@@ -1,0 +1,23 @@
+/* Menu slide-in animation */
+@keyframes slide-in {
+     0% {
+       transform: translateY(50%);
+       opacity: 0;
+     }
+     100% {
+       transform: translateY(0);
+       opacity: 1;
+     }
+   }
+
+
+
+/* Check animation */
+@keyframes check-animation {
+     0% {
+          transform: translateX(0);
+     }
+     100% {
+          transform: translateX(-100px);
+     }
+}

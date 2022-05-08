@@ -1,8 +1,9 @@
 /* Header's layout */
 header {
-     height: 80px;
+     height: 60px;
      width: 100%;
      box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.2);
+     margin-top: 10px;
      display: flex;
      justify-content: center;
      position: relative;
@@ -11,7 +12,7 @@ header {
           font-size: 1.2em;
           position: absolute;
           left: 25px;
-          top: 25px;
+          top: 15px;
      }
      h1 {
           font-size: 1.8em;
@@ -25,6 +26,7 @@ header {
      background: darken($color-background, 4%);
      padding: 1px;
      p {
+          color: $color-subtitle;
           font-size: 0.8em;
           font-weight: 500;
           @include alignement-center;
@@ -46,6 +48,7 @@ header {
           font-size: 1.2em;
      }
      > p {
+          color: $color-subtitle;
           font-size: 0.9em;
           font-weight: 300;
           margin: 0 20px 30px 20px;
@@ -60,6 +63,11 @@ header {
      h2 {
           @include index-title;
      }
+
+     @media all and (min-width: 800px) {
+          width: 90%;
+          margin: 0 auto;
+     }
 }
 
 /* Restaurant cards */
@@ -70,12 +78,18 @@ header {
      background: $color-background;
           h2{
                @include index-title;
+               padding-top: 10px;
           }
           &__cards {
           display: flex;
           flex-direction: column;
      }
-     @media all and (min-width: 1200px) {
+
+     @media all and (min-width: 800px) {
+          width: 90%;
+          margin-bottom: 50px;
+          padding-bottom: 20px;
+          border-radius: 40px;
           &__cards {
                display: flex;
                flex-direction: row;
@@ -85,7 +99,7 @@ header {
 }
 
 .card-restaurant {
-     height: 250px;
+     height: 245px;
      background-color: $color-white;
      margin: 10px 20px;
      border-radius: 15px;
@@ -112,16 +126,48 @@ header {
           }
      }
      &__text {
+          font-size: 0.95em;
           margin-left: 10px;
           line-height: 0px;
+          p {
+               color: $color-subtitle;
+          }
      }
      &__heart {
           font-size: 1.3em;
+          width: 20px;
+          height: 20px;
           position: absolute;
-          bottom: 20px;
-          right: 20px;
+          bottom: 25px;
+          right: 25px;
+          .heart__static {
+               opacity: 1;
+          }
+          .heart__animated {  /* Colored heart icon underneath */
+               color: transparent; /* Necessity for a gradient heart */
+               opacity: 0;
+               position: absolute;
+               bottom: -0.2em;
+               right: -0.16em;
+               background: linear-gradient(40deg, $color-secondary, $color-primary);
+               background: -webkit-linear-gradient(40deg, $color-secondary, $color-primary);
+               -webkit-background-clip: text;
+               background-clip: text;
+               -webkit-text-fill-color: transparent;
+          }
+          &:hover  {
+               .heart__static {
+                    opacity: 0;
+                    transition: opacity 350ms;
+               }
+               .heart__animated {
+                    opacity: 1;
+                    transition: opacity 350ms;
+               }
+          }
      }
-     @media all and (min-width: 1200px) {
+
+     @media all and (min-width: 800px) {
           height: 300px;
           width: 40%;
           margin: 30px;
@@ -131,39 +177,87 @@ header {
      }
 }
 
+
 /* Menu's layout */
 .menu {
      display: flex;
      flex-direction: column;
+
+     @media all and (min-width: 800px) {
+          margin: 0 100px;
+          }
      img {
           object-fit: cover;
-          @media all and (min-width: 1200px) {
-          height: 500px;
+          height: 280px;
+
+          @media all and (min-width: 800px) {
+          width: 140%;
+          height: 320px;
+          margin-left: -20%;
           }
      }
      &__list {
           background-color: $color-background;
-          border-radius: 30px 30px 0 0;
+          border-radius: 40px 40px 0 0;
           margin-top: -50px;
           padding-bottom: 100px;
           justify-content: center;
+
+          @media all and (min-width: 800px) {
+               border-radius: 40px;
+               margin-bottom: 50px;
+               padding-bottom: 50px;
+               }
+
           &__header {
                display: flex;
                flex-direction: row;
                justify-content: space-between;
-               margin-bottom: -20px;
+               margin-bottom: -40px;
                h4  {
                     width: 100%;
                     font-family: 'Shrikhand', Arial, Helvetica, sans-serif;
-                    font-size: 1.3em;
-                    margin-left: 4%;
+                    font-size: 1.4em;
+                    margin-left: 5%;
                }
-               i {
-                    font-size: 1.2em;
-                    margin: 30px 5% 0 0;
+               &--heart {
+                    cursor: pointer;
+                    width: 20px;
+                    height: 20px;
+                    font-size: 1.3em;
+                    position: relative;
+                    top: 38px;
+                    right: 40px;
+                    .heart__static {
+                         opacity: 1;
+                         }
+               .heart__animated {  /* Colored heart icon underneath */
+                    color: transparent; /* Necessity for a gradient heart */
+                    opacity: 0;
+                    position: absolute;
+                    top: 0.08em;
+                    right: -0.17em;
+                    background: linear-gradient(40deg, $color-secondary, $color-primary); /* Heart coloration */
+                    background: -webkit-linear-gradient(40deg, $color-secondary, $color-primary);
+                    -webkit-background-clip: text;
+                    background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    }
+               &:hover  {
+                    .heart__static {
+                         opacity: 0;
+                         transition: opacity 350ms;
+                    }
+                    .heart__animated {
+                         opacity: 1;
+                         transition: opacity 350ms;
+                    }
                }
           }
-          @media all and (min-width: 1200px) {
+
+          }
+
+          @media all and (min-width: 800px) {
                padding: 0 100px -50px 100px;
           }
      }
@@ -172,7 +266,8 @@ header {
 /* Category title */
 .dish h5 {
      @include category-title;
-     @media all and (min-width: 1200px) {
+     
+     @media all and (min-width: 800px) {
           margin: 20px auto;
      }
 }
@@ -182,12 +277,13 @@ header {
 footer {
      color: $color-white;
      background-color: $color-footer;
-     padding: 5px 0 20px 20px;
+     padding: 5px 0 10px 20px;
      h3 a {
           color: $color-white;
           font-family: 'Shrikhand', Arial, Helvetica, sans-serif;
      }
      ul {
+          font-size: 0.9em;
           font-weight: 500;
           list-style-type: none;
           padding: 0px;
@@ -196,11 +292,11 @@ footer {
                line-height: 30px;
           }
           li .fa-utensils {
-               font-size: 0.8em;
+               font-size: 0.9em;
                margin-right: 5px;
           }
           li .fa-handshake-angle {
-               font-size: 0.6em;
+               font-size: 0.7em;
                margin-right: 5px;
           }
      }

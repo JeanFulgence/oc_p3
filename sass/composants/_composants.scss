@@ -2,7 +2,7 @@
 .menu__list__btn {
      color: $color-white;
      cursor: pointer;
-     width: 60%;
+     width: 12em;
      height: 50px;
      border-radius: 25px;
      display: flex;
@@ -15,13 +15,14 @@
      position: relative;
      p {
           font-size: 0.9em;
-          font-weight: bold;
+          font-weight: 500;
           line-height: 15px;
      }
      &:hover {
           box-shadow: 0px 8px 10px $color-shadow;
+          transition: box-shadow 400ms;
           &::after {
-               opacity: 0.2;
+               opacity: 0.4;
           }
      }
      &::after { /* Pseudo-class for hover animation */
@@ -31,8 +32,9 @@
           background: lighten($color-secondary, 5);
           transition: opacity 400ms;
      }
-     @media all and (min-width: 1200px) {
-          width: 30%;
+     
+     @media all and (min-width: 800px) {
+          width: 14em;
           p {
                font-size: 1em;
                font-weight: bold;
@@ -47,11 +49,12 @@
      height: 70px;
      display: flex;
      justify-content: space-around;
+     align-self: center;
      @include shadow;
      border-radius: 20px;
      margin: 15px 0;
-     align-self: center;
      position: relative;
+
      &__number {
           width: 25px;
           height: 25px;
@@ -70,18 +73,19 @@
           }
      }
      i {
-          color: $color-grey;
+          color: $color-icons;
           position: absolute;
           top: 25px;
           left: 8%;
      }
-     p {
+     > p {
+          font-size: 0.92em;
           font-weight: 500;
           align-self: center;
      }
      &:hover {
           &::after {
-               opacity: 0.3;
+               opacity: 0.2;
           }
           i {
                color: $color-primary;
@@ -92,11 +96,13 @@
           content: "";
           @include pseudo-btn;
           border-radius: 20px;
-          background: lighten($color-secondary, 10);
+          background: lighten($color-primary, 20);
           transition: opacity 250ms;
      }
-     @media all and (min-width: 1200px) {
+
+     @media all and (min-width: 800px) {
           height: 80px;
+          width: 60%;
           &__number {
                top: 28px;
           }
@@ -120,16 +126,19 @@
      justify-content: space-between;
      align-items: center;
      margin: 25px auto;
-     &__content {
+     position: relative;
+     animation: slide-in 1200ms forwards;
+          &__content {
           width: 80%;
           h6 {
                font-size: 0.9em;
-               margin: 15px 10px -5px 10px;
+               margin: 15px 10px -10px 10px;
                white-space: nowrap;
                overflow: hidden;
                text-overflow: ellipsis;
           }
           p {
+               color: $color-subtitle;
                font-size: 0.8em;
                margin-left: 10px;
                white-space: nowrap;
@@ -142,12 +151,19 @@
           font-weight: bold;
           position: relative;
           right: 20px;
-          bottom: -16px;
+          bottom: -15px;
      }
-     i {
+     .check {
           display: none;
+          font-size: 1.5em;
+          color: $color-white;
+          background: $color-tertiary;
+          border-radius: 0 15px 15px 0;
+          padding: 0 15px;
+          height: 100%;
      }
-     @media all and (min-width: 1200px) {
+
+     @media all and (min-width: 800px) {
           margin: 30px auto;
      }
 }

@@ -23,14 +23,15 @@
 
 /* Menu category title */
 @mixin category-title {
+     font-size: 1.02em;
+     font-weight: 300;
      width: 90%;
      position: relative;
-     font-weight: 300;
      text-transform: uppercase;
-     margin: 20px auto;
+     margin: 40px auto 20px auto;
      &::after { /* Category title underline */
      content: '';
-          width: 40px;
+          width: 45px;
           height: 3px;
           background: $color-tertiary;
           position: absolute;
@@ -47,10 +48,10 @@
 /* Pseudo-class for button animation */
 @mixin pseudo-btn {
      position: absolute;
-          top: 0;
-          right: 0;
-          bottom: 0;
-          left: 0;
-          opacity: 0;
-          z-index: -1;
+     top: 0;
+     right: 0;
+     bottom: 0;
+     left: 0;
+     opacity: 0;
+     z-index: -1;
 }
