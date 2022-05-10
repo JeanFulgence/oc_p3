@@ -135,7 +135,7 @@ header {
      }
      &__heart {
           font-size: 1.3em;
-          width: 20px;
+          width: 24px;
           height: 20px;
           position: absolute;
           bottom: 25px;
@@ -147,8 +147,8 @@ header {
                color: transparent; /* Necessity for a gradient heart */
                opacity: 0;
                position: absolute;
-               bottom: -0.2em;
-               right: -0.16em;
+               bottom: -4.5px;
+               right: -0px;
                background: linear-gradient(40deg, $color-secondary, $color-primary);
                background: -webkit-linear-gradient(40deg, $color-secondary, $color-primary);
                -webkit-background-clip: text;
@@ -182,10 +182,6 @@ header {
 .menu {
      display: flex;
      flex-direction: column;
-
-     @media all and (min-width: 800px) {
-          margin: 0 100px;
-          }
      img {
           object-fit: cover;
           height: 280px;
@@ -227,40 +223,44 @@ header {
                     font-size: 1.3em;
                     position: relative;
                     top: 38px;
-                    right: 40px;
+                    right: 35px;
                     .heart__static {
                          opacity: 1;
-                         }
-               .heart__animated {  /* Colored heart icon underneath */
-                    color: transparent; /* Necessity for a gradient heart */
-                    opacity: 0;
-                    position: absolute;
-                    top: 0.08em;
-                    right: -0.17em;
-                    background: linear-gradient(40deg, $color-secondary, $color-primary); /* Heart coloration */
-                    background: -webkit-linear-gradient(40deg, $color-secondary, $color-primary);
-                    -webkit-background-clip: text;
-                    background-clip: text;
-                    -webkit-text-fill-color: transparent;
                     }
-               &:hover  {
-                    .heart__static {
+                    .heart__animated {  /* Colored heart icon underneath */
+                         color: transparent; /* Necessity for a gradient heart */
+                         width: 24px;
                          opacity: 0;
-                         transition: opacity 350ms;
+                         position: absolute;
+                         top: 2px;
+                         right: -3.9px;
+                         background: linear-gradient(40deg, $color-secondary, $color-primary); /* Heart coloration */
+                         background: -webkit-linear-gradient(40deg, $color-secondary, $color-primary);
+                         -webkit-background-clip: text;
+                         background-clip: text;
+                         -webkit-text-fill-color: transparent;
                     }
-                    .heart__animated {
-                         opacity: 1;
-                         transition: opacity 350ms;
+                    &:hover  {
+                         .heart__static {
+                              opacity: 0;
+                              transition: opacity 350ms;
+                         }
+                         .heart__animated {
+                              opacity: 1;
+                              transition: opacity 350ms;
+                         }
                     }
                }
           }
 
-          }
-
           @media all and (min-width: 800px) {
-               padding: 0 100px -50px 100px;
+               padding: 0 100px 40px 100px;
           }
      }
+
+     @media all and (min-width: 800px) {
+          margin: 0 100px;
+          }
 }
 
 /* Category title */
