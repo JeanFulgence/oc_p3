@@ -2,12 +2,11 @@
 .loader {
      position: fixed;
      width: 100%;
-     height: 100%;
+     height: 105%; /* background patch */
      z-index: 2;
-     display: flex;
-     justify-content: center;
+     @include flex-center;
      align-items: center;
-     margin-top: -20px;
+     margin-top: -20px; /* background patch */
      background: $color-white;
      opacity: 0.8;
      animation: loading-fade-out 2000ms forwards;
@@ -33,48 +32,8 @@
 }
 
 /* Main button */
-.menu__list__btn {
-     color: $color-white;
-     cursor: pointer;
-     width: 12em;
-     height: 50px;
-     border-radius: 25px;
-     display: flex;
-     justify-content: center;
-     align-content: center;
-     margin: 0px auto;
-     @include shadow;
-     @include main-btn-color;
-     z-index: 1; /* Used for hover animation */
-     position: relative;
-     p {
-          font-size: 0.9em;
-          font-weight: 500;
-          line-height: 15px;
-     }
-     &:hover {
-          box-shadow: 0px 8px 10px $color-shadow;
-          transition: box-shadow 400ms;
-          &::after {
-               opacity: 0.4;
-          }
-     }
-     &::after { /* Pseudo-class for hover animation */
-          content: "";
-          @include pseudo-btn;
-          border-radius: 25px;
-          background: lighten($color-secondary, 5);
-          transition: opacity 400ms;
-     }
-     
-     @media all and (min-width: 800px) {
-          width: 14em;
-          p {
-               font-size: 1em;
-               font-weight: bold;
-               line-height: 15px;
-          }
-     }
+.main-btn {
+     @include main-btn;
 }
 
 /* Fonctionning button */
@@ -86,45 +45,29 @@
      align-self: center;
      @include shadow;
      border-radius: 20px;
-     margin: 15px 0;
+     margin: 10px 0;
      position: relative;
-
      &__number {
-          width: 25px;
-          height: 25px;
-          background: $color-primary;
-          border-radius: 20px;
-          position: absolute;
-          top: 20px;
-          left: -12px;
-          p {
-          font-size: 0.8em;
-          font-weight: bold;
-          color: $color-white;
-          position: absolute;
-          top: -9px;
-          left: 8px;
-          }
+          @include numbered-circle;
      }
      i {
           color: $color-icons;
           position: absolute;
-          top: 25px;
+          top: 23.5px;
           left: 8%;
      }
      > p {
-          font-size: 0.92em;
+          font-size: map-get($font-size, subtitles);
           font-weight: 500;
           align-self: center;
      }
-     &:hover {
-          &::after {
-               opacity: 0.2;
-          }
-          i {
-               color: $color-primary;
-               transition: color 350ms;
-          }
+     &::before { /* Pseudo-class for pre-hover background color */
+          content: "";
+          @include pseudo-btn;
+          border-radius: 20px;
+          background: $color-background;
+          opacity: 1;
+          transition: opacity 200ms;
      }
      &::after { /* Pseudo-class for hover animation */
           content: "";
@@ -132,6 +75,18 @@
           border-radius: 20px;
           background: lighten($color-primary, 20);
           transition: opacity 250ms;
+     }
+     &:hover {
+          &::before {
+               opacity: 0;
+          }
+          &::after {
+               opacity: 0.2;
+          }
+          i {
+               color: $color-primary;
+               transition: color 350ms;
+          }
      }
 
      @media all and (min-width: 800px) {
@@ -141,7 +96,7 @@
                top: 28px;
           }
           i {
-               top: 28px;
+               top: 32px;
                left: 10%;
           }
      }
@@ -158,31 +113,30 @@
      @include shadow;
      display: flex;
      justify-content: space-between;
-     margin: 25px auto;
+     margin: 15px auto;
      position: relative;
      &__content {
                     h6 {
-                    font-size: 0.9em;
+                    font-size: map-get($font-size, dish-title);
                     margin: 15px 10px -10px 10px;
-                    white-space: nowrap;
-                    overflow: clip;
-                    text-overflow: ellipsis;
                     }
                     p {
                     color: $color-subtitle;
-                    font-size: 0.8em;
+                    font-size: map-get($font-size, subtitles);
                     margin-left: 10px;
-                    white-space: nowrap;
+                    line-height: 20px;
                     overflow: hidden;
                     text-overflow: ellipsis;
+                    white-space: nowrap;
                     }
      }
      &__price {
-          font-size: 0.8em;
+          font-size: map-get($font-size, subtitles);
           font-weight: bold;
           margin-bottom: 12px;
           margin-right: 20px;
           align-self: flex-end;
+          line-height: 20px;
      }
      &__check {
           display: none;
@@ -217,8 +171,8 @@
           }
      }
 }
-/*
-Dish list button slide-in animation 
+
+/* Dish list button slide-in animation */
 
 .btn_1 {
      animation: slide-in 1200ms both;
@@ -228,4 +182,7 @@ Dish list button slide-in animation
 }
 .btn_3 {
      animation: slide-in 1200ms both 300ms;
-}*/
+}
+.btn_4 {
+     animation: slide-in 1200ms both 450ms;
+}

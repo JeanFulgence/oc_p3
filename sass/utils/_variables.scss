@@ -7,4 +7,22 @@ $color-icons: #858585;
 $color-subtitle: #505050;
 $color-background: #f5f5f5;
 $color-footer: #3C3C3C;
-$color-shadow: #cccccc;
+$color-shadow: #dfdfdf;
+
+/* Font-size map */
+$font-size: (
+     header-title: 28px,
+     back-arrow: 20px,
+     reservation: 20px,
+     reservation-subtitle: 16px,
+     card-title: 17px,
+     card-subtitle: 16px,
+     card-panel: 12px,
+     menu-title: 25px,
+     dish-title: 16px,
+     subtitles: 14px,
+     footer-title: 18px,
+     footer-list: 14px,
+     icon-utensils: 14px,
+     icon-hands: 10px
+);
