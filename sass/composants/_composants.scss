@@ -23,7 +23,6 @@
      .dot2 {
           background: $color-secondary;
           animation-delay: 100ms;
-
      }
      .dot3 {
           background: $color-tertiary;
@@ -104,66 +103,66 @@
      display: flex;
      justify-content: space-between;
      margin: 15px auto;
-     position: relative;
+     overflow: hidden;
      &__content {
-          width: 85%;
-                    h6 {
-                    font-size: map-get($font-size, dish-title);
-                    margin: 15px 10px -10px 10px;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    white-space: nowrap;
-                    }
-                    p {
-                    color: $color-subtitle;
-                    font-size: map-get($font-size, subtitles);
-                    margin-left: 10px;
-                    line-height: 20px;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    white-space: nowrap;
-                    }
+          width: 90%;
+          margin-left: 15px;
+          white-space: nowrap;
+          overflow: hidden;
+          h6 {
+               font-size: map-get($font-size, dish-title);
+               margin: 15px 10px -10px 0px;
+               @include hidden-ellipsis;
+          }
+          p {
+               color: $color-subtitle;
+               font-size: map-get($font-size, subtitles);
+               line-height: 20px;
+               @include hidden-ellipsis;
+               word-spacing: -1px;
+          }
      }
      &__price {
-          width: 5%;
+          width: 10%;
           font-size: map-get($font-size, subtitles);
           font-weight: bold;
-          margin-bottom: 12px;
-          margin-right: 20px;
+          padding: 15px 20px;
           align-self: flex-end;
-          line-height: 20px;
      }
      &__check {
-          display: none;
           color: $color-white;
           height: 40px;
-          position: absolute;
-          right: -1px;
-          padding: 15px;
-          border-radius: 0 15px 15px 0;
+          margin-right: -25%;
+          padding: 15px 7%;
           background: $color-tertiary;
-          animation: slide-left 500ms cubic-bezier(0.390, 0.575, 0.565, 1.000) 100ms both;
           i {
-               font-size: 20px;
-               margin: 8px auto;
-               animation: check-rotate 700ms ease both;
+               font-size: map-get($font-size, check-small);
+               margin: 35% auto;
           }
      }
      &:hover {
-          .dish__btn__price {
-               animation: price-slide 500ms both;
-          }
           .dish__btn__check {
-               display: initial;
+               animation: slide-left 800ms both;
+               i {
+                    animation: check-rotate 800ms ease both;
+               }
+          }
+     }
+
+     @media all and (min-width: 600px) {
+          margin: 30px auto;
+          &__check {
+               padding: 15px 7%;
+               i {
+                    font-size: map-get($font-size, check-large);
+                    margin: 5px auto;
+               }
           }
      }
 
      @media all and (min-width: 800px) {
-          margin: 30px auto;
-
-          .dish__btn__check {
-               position: absolute;
-               right: -1px;
+          &__check {
+               margin-right: -25%;
           }
      }
 }

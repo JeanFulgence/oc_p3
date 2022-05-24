@@ -23,7 +23,7 @@ header {
 .localization {
      background: darken($color-background, 4%);
      padding: 1px;
-     margin: 0 auto;
+     @include margin-alignement;
      p {
           color: $color-subtitle;
           font-size: map-get($font-size, subtitles);
@@ -40,8 +40,7 @@ header {
 .reservation {
      background: $color-background;
      @include index-padding;
-     display: flex;
-     flex-direction: column;
+     @include flex-column;
      text-align: center;
      h2 {
           font-size: map-get($font-size, reservation);
@@ -56,9 +55,8 @@ header {
 
 /* Fonctionning */
 .fonctionning {
-     display: flex;
-     flex-direction: column;
-     margin: 0 auto;
+     @include flex-column;
+     @include margin-alignement;
      @include index-padding;
      h2 {
           @include index-title;
@@ -66,14 +64,13 @@ header {
 
      @media all and (min-width: 800px) {
           width: 90%;
-          margin: 0 auto;
      }
 }
 
 /* Restaurant cards */
 .list-restaurant {
      width: 100%;
-     margin: 0 auto;
+     @include margin-alignement;
      @include index-padding;
      background: $color-background;
           h2{
@@ -81,8 +78,7 @@ header {
                padding-top: 10px;
           }
           &__cards {
-          display: flex;
-          flex-direction: column;
+          @include flex-column;
      }
 
      @media all and (min-width: 800px) {
@@ -91,17 +87,15 @@ header {
           padding-bottom: 20px;
           border-radius: 40px;
           &__cards {
-               display: flex;
+               @include flex-center;
                flex-direction: row;
-               justify-content: center;
           }
      }
 }
 
 /* Menu's layout */
 .menu {
-     display: flex;
-     flex-direction: column;
+     @include flex-column;
      img {
           object-fit: cover;
           height: 280px;

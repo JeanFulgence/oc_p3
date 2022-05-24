@@ -1,12 +1,23 @@
 /* Main box shadow */
 @mixin shadow {
-     box-shadow: 5px 5px 12px $color-shadow;
+     box-shadow: 0px 5px 12px $color-shadow;
 }
 
 /* Box alignement */
 @mixin flex-center {
      display: flex;
      justify-content: center;
+}
+
+/* Margin alignement */
+@mixin margin-alignement {
+     margin: 0 auto;
+}
+
+/* Flex column */
+@mixin flex-column {
+     display: flex;
+     flex-direction: column;
 }
 
 /* Index title */
@@ -19,6 +30,12 @@
 @mixin index-padding {
      padding-top: 20px;
      padding-bottom: 50px;
+}
+
+/* text overflow */
+@mixin hidden-ellipsis {
+     overflow: hidden;
+     text-overflow: ellipsis;
 }
 
 /* Main button */
@@ -35,7 +52,11 @@
      background: linear-gradient(175deg, $color-secondary, $color-primary);
      z-index: 1; /* Used for hover animation */
      position: relative;
+     a {
+          display: block;
+     }
      p {
+          color: $color-white;
           font-size: 16px;
           font-weight: 500;
      }
@@ -50,7 +71,7 @@
           content: "";
           @include pseudo-btn;
           border-radius: 25px;
-          background: lighten($color-secondary, 5);
+          background: lighten($color-primary, 2);
           transition: opacity 400ms;
      }
      
@@ -252,7 +273,7 @@
      font-size: 25px;
      position: relative;
      top: 34px;
-     right: 35px;
+     right: 10%;
      input {
           cursor: pointer;
           width: 30px;
@@ -298,5 +319,9 @@
                opacity: 1;
                transition: opacity 350ms;
           }
+     }
+
+     @media all and (min-width: 800px) {
+          right: 7%; /* Responsive heart positionning */
      }
 }

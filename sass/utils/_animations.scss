@@ -38,21 +38,10 @@
 /* Check animations */
 @keyframes slide-left { /* Checkbox slider */
      0% {
-          transform: scaleX(0);
-          transform-origin: 100% 100%;
+          margin-right: -25%;
      }
      100% {
-          transform: scaleX(1);
-          transform-origin: 100% 100%;
-     }
-}
-
-@keyframes price-slide { /* Price slider */
-     0% {
-          transform: translateX(0px);
-     }
-     100% {
-          transform: translateX(-55px);
+          margin-right: 0%;
      }
 }
 
