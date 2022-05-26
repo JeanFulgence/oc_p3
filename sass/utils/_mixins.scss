@@ -22,7 +22,7 @@
 
 /* Index title */
 @mixin index-title {
-     font-size: 22px;
+     font-size: map-get($font-size, restaurant-list-title);
      margin-left: 20px;
 }
 
@@ -57,7 +57,7 @@
      }
      p {
           color: $color-white;
-          font-size: 16px;
+          font-size: map-get($font-size, main-btn-small);
           font-weight: 500;
      }
      &:hover {
@@ -67,7 +67,8 @@
                opacity: 0.4;
           }
      }
-     &::after { /* Pseudo-class for hover animation */
+     /* Pseudo-class for hover animation */
+     &::after {
           content: "";
           @include pseudo-btn;
           border-radius: 25px;
@@ -78,7 +79,7 @@
      @media all and (min-width: 800px) {
           width: 250px;
           p {
-               font-size: 17px;
+               font-size: map-get($font-size, main-btn-large);
           }
      }
 }
@@ -115,11 +116,12 @@
           left: 8%;
      }
      > p {
-          font-size: map-get($font-size, subtitles);
+          font-size: map-get($font-size, fonctionning-text);
           font-weight: 500;
           align-self: center;
      }
-     &::before { /* Pseudo-class for pre-hover background color */
+     /* Pseudo-class for pre-hover background color */
+     &::before {
           content: "";
           @include pseudo-btn;
           border-radius: 20px;
@@ -127,14 +129,16 @@
           opacity: 1;
           transition: opacity 200ms;
      }
-     &::after { /* Pseudo-class for hover animation */
+     /* Pseudo-class for hover animation */
+     &::after { 
           content: "";
           @include pseudo-btn;
           border-radius: 20px;
           background: lighten($color-primary, 20);
           transition: opacity 250ms;
      }
-     &:hover { /* Hover animation's button color transition */
+     /* Hover animation's button color transition */
+     &:hover {
           &::before {
                opacity: 0;
           }
@@ -162,20 +166,20 @@
 
 /* Numbered circular panels */
 @mixin circle-panel {
-     width: 25px;
-     height: 25px;
+     width: 24px;
+     height: 24px;
      background: $color-primary;
      border-radius: 20px;
      position: absolute;
      top: 20px;
      left: -12px;
      p {
-          font-size: 14px;
+          font-size: map-get($font-size, fonctionning-number);
           font-weight: bold;
           color: $color-white;
           position: absolute;
           top: -8px;
-          left: 8.5px;
+          left: 8px;
      }
 }
 
@@ -193,20 +197,21 @@
 
 /* Menu category title */
 @mixin category-title {
-     font-size: 14px;
+     font-size: map-get($font-size, dish-category);
      font-weight: 300;
      width: 90%;
      position: relative;
      text-transform: uppercase;
      margin: 40px auto 20px auto;
-     &::after { /* Category title underline */
+     /* Category title underline */
+     &::after { 
      content: '';
-          width: 38px;
-          height: 3px;
+          width: 36px;
+          height: 2px;
           background: $color-tertiary;
           position: absolute;
           left: 0px;
-          bottom: -6px;
+          bottom: -9px;
      }
 }
 
@@ -241,14 +246,15 @@
      .heart__static {
           opacity: 1;
      }
-     .heart__animated {  /* Colored heart icon underneath */
+     /* Colored heart icon underneath */
+     .heart__animated {
           color: transparent; /* Necessity for a gradient heart */
           width: 28px;
           opacity: 0;
           position: absolute;
           bottom: -5.8px;
           right: -8.2px;               
-          background: linear-gradient(40deg, $color-secondary, $color-primary);
+          background: linear-gradient(40deg, $color-secondary, $color-primary); /* Heart coloration */
           background: -webkit-linear-gradient(40deg, $color-secondary, $color-primary);
           -webkit-background-clip: text;
           background-clip: text;
@@ -297,7 +303,8 @@
      .heart__static {
           opacity: 1;
      }
-     .heart__animated {  /* Colored heart icon underneath */
+     /* Colored heart icon underneath */
+     .heart__animated {
           color: transparent; /* Necessity for a gradient heart */
           width: 28px;
           opacity: 0;
